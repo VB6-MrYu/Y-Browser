@@ -14,7 +14,7 @@ Begin VB.MDIForm MDIfrm
       Caption         =   "文件(&F)"
       Begin VB.Menu Newform 
          Caption         =   "新的窗口"
-         Shortcut        =   ^N
+         Shortcut        =   ^T
       End
       Begin VB.Menu Exit 
          Caption         =   "退出"
