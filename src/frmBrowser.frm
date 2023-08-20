@@ -90,7 +90,7 @@ Begin VB.Form frmBrowser
       NoFolders       =   0   'False
       Transparent     =   0   'False
       ViewID          =   "{0057D0E0-3573-11CF-AE69-08002B2E1262}"
-      Location        =   ""
+      Location        =   "http:///"
    End
    Begin VB.Timer timTimer 
       Enabled         =   0   'False
@@ -183,16 +183,19 @@ Private Sub Form_Load()
     tbToolBar.Refresh
     Form_Resize
     cboAddress.Move 50, lblAddress.Top + lblAddress.Height + 15
+    brwWebBrowser.Silent = True
 End Sub
 
 Private Sub brwWebBrowser_DownloadComplete()
     On Error Resume Next
+    brwWebBrowser.Silent = True
     Me.Caption = brwWebBrowser.LocationName
     cboAddress.Text = brwWebBrowser.LocationURL
 End Sub
 
 Private Sub brwWebBrowser_NavigateComplete(ByVal URL As String)
     On Error Resume Next
+    brwWebBrowser.Silent = True
     Dim i As Integer
     Dim bFound As Boolean
     Me.Caption = brwWebBrowser.LocationName
